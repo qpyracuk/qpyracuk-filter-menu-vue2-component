@@ -8,7 +8,7 @@
 					<use :xlink:href="build.all.sprite"></use>
 				</svg>
 			</div>
-			<input class="sliding-filter-menu__item-input" :type="build.type" v-model="allValue" @change="all()" type="checkbox" />
+			<input class="sliding-filter-menu__item-input" :type="build.type" v-model="allValue" @change="all()" type="checkbox" :true-value="build.values.true" :false-value="build.values.false" />
 			<template v-for="item in build.items" class="sliding-filter-menu__item">
 				<div class="sliding-filter-menu__item-content">
 					<div class="sliding-filter-menu__item-title" v-if="item.title !== undefined">{{ item.title }}</div>

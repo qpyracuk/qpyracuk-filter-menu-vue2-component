@@ -22,10 +22,7 @@ export default {
 		all: function () {
 			const len = this.build.items.length;
 			const items = this.build.items;
-			for (let i = 0; i < len; i++) {
-				this.getFieldPath(this.filter, items[i])[this.getLastField(items[i])] = this.allValue ? this.build.values.true : this.build.values.false;
-			}
-			this.$emit("filterChangeEvent", this.filter);
+			for (let i = 0; i < len; i++) this.getFieldPath(this.filter, items[i])[this.getLastField(items[i])] = this.allValue;
 		},
 
 		change() {
@@ -37,7 +34,6 @@ export default {
 			}
 			if (number === len) this.allValue = this.build.values.true;
 			else this.allValue = this.build.values.false;
-			this.$emit("filterChangeEvent", this.filter);
 		},
 
 		getFieldPath(filter, item) {
@@ -147,16 +143,18 @@ export default {
 		}
 
 		const len = build.items.length;
-		const items = this.build.items;
+		const items = build.items;
 		let number = 0;
 		for (let i = 0; i < len; i++) {
 			let field = this.getFieldPath(this.filter, items[i]);
 			let fieldName = this.getLastField(items[i]);
 			if (field[fieldName] === undefined) field[fieldName] = build.default;
-			if (field[fieldName] === this.build.values.true) number++;
+			if (field[fieldName] === build.values.true) number++;
 		}
-		if (number === len) this.allValue = this.build.values.true;
-		else this.allValue = this.build.values.false;
+		console.log(number, len, build.values.false);
+		if (number === len) {
+			this.allValue = build.values.true;
+		} else this.allValue = build.values.false;
 		this.$emit("filterChangeEvent", this.filter);
 	},
 };

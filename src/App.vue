@@ -11,15 +11,14 @@
 	import FilterMenu from "./components/sliding-filter-menu/sliding-filter-menu.vue";
 	const data = {
 		type: "checkbox",
-		name: 1,
-        default: "kfkfkf",
-        debug: true,
+		name: "name-for-radio",
+		default: "kfkfkf",
 		all: {
-			title: "test"
+			title: "test",
 		},
 		values: {
-            true: "kfkfkf",
-            false: "Неправда..."
+			true: "kfkfkf",
+			false: "Неправда...",
 		},
 		items: [
 			{
@@ -43,6 +42,90 @@
 				image: "",
 				scripe: "test.scrite.svg",
 			},
+			{
+				field: "value4",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value5",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value6",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value7",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value8",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value9",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value10",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value11",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value12",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value13",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value14",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value15",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
 		],
 	};
 	export default {
@@ -50,7 +133,23 @@
 		data: function () {
 			return {
 				data: data,
-				filter: { value1: 1, value2: 1, value3: 1 },
+				filter: {
+					value1: '',
+					value2: '',
+					value3: '',
+					value4: '',
+					value5: '',
+					value6: '',
+					value7: '',
+					value8: '',
+					value9: '',
+					value10: '',
+					value11: '',
+					value12: '',
+					value13: '',
+					value14: '',
+					value15: '',
+				},
 				visible: true,
 			};
 		},
