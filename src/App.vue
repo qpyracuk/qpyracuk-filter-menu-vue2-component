@@ -1,28 +1,164 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<div style="margin-bottom: 10%">{{ filter }}</div>
+		<center>
+			<FilterMenu v-model="filter" :build="data" :visible="visible" />
+		</center>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+	import FilterMenu from "./components/sliding-filter-menu/sliding-filter-menu.vue";
+	const data = {
+		type: "checkbox",
+		name: 1,
+        default: 1,
+        debug: true,
+		all: {
+			title: "test",
+		},
+		values: {
+			true: 1,
+		},
+		items: [
+			{
+				field: "value1",
+				title: "Что-то очень длинное",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value2",
+				title: "Пункт 2",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+			{
+				field: "value3",
+				title: "value3",
+				style: "fill: red",
+				image: "",
+				scripe: "test.scrite.svg",
+			},
+		],
+	};
+	export default {
+		name: "App",
+		data: function () {
+			return {
+				data: data,
+				filter: { value1: 1, value2: 1, value3: 1 },
+				visible: true,
+			};
+		},
+		components: {
+			FilterMenu,
+		},
+	};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+	#app {
+		font-family: Avenir, Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-align: center;
+		color: #2c3e50;
+		margin-top: 60px;
+	}
+
+	/*-------- Clear all basic CSS --------*/
+
+	* {
+		padding: 0;
+		margin: 0;
+		border: 0;
+	}
+
+	*,
+	*:before,
+	*:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	:focus,
+	:active {
+		outline: none;
+	}
+
+	a:focus,
+	a:active {
+		outline: none;
+	}
+
+	nav,
+	footer,
+	header,
+	aside {
+		display: block;
+	}
+
+	html,
+	body {
+		height: 100%;
+		width: 100%;
+		font-size: 100%;
+		line-height: 1;
+		font-size: 14px;
+		-ms-text-size-adjust: 100%;
+		-moz-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+	}
+
+	input,
+	button,
+	textarea {
+		font-family: inherit;
+	}
+
+	input:-ms-clear {
+		display: none;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	button:-moz-focus-inner {
+		padding: 0;
+		border: 0;
+	}
+
+	a,
+	a:visited {
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	ul li {
+		list-style: none;
+	}
+
+	img {
+		vertical-align: top;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-size: inherit;
+		font-weight: 400;
+	}
+
+	/*--------------------*/
 </style>

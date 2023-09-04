@@ -1,0 +1,31 @@
+<div class="sliding-filter-menu__pixel" v-if="visible">
+	<div class="sliding-filter-menu">
+		<div class="sliding-filter-menu__box">
+			<div class="sliding-filter-menu__item" v-if="build.all !== undefined && build.type ==='checkbox'">
+				<div class="sliding-filter-menu__item-title">{{ build.all.title }}</div>
+				<img class="sliding-filter-menu__item-image" v-if="build.all.image !== undefined" :src="build.all.image" />
+				<svg class="sliding-filter-menu__item-sprite" v-if="build.all.sprite !== undefined">
+					<use :xlink:href="build.all.sprite"></use>
+				</svg>
+			</div>
+			<input class="sliding-filter-menu__item-input" :type="build.type" v-model="allValue" @change="all()" type="checkbox" />
+			<template v-for="item in build.items" class="sliding-filter-menu__item">
+				<div class="sliding-filter-menu__item-content">
+					<div class="sliding-filter-menu__item-title" v-if="item.title !== undefined">{{ item.title }}</div>
+					<img class="sliding-filter-menu__item-image" v-if="item.image !== undefined" :src="item.image" />
+					<svg class="sliding-filter-menu__item-sprite" v-if="item.sprite !== undefined">
+						<use :xlink:href="item.sprite"></use>
+					</svg>
+				</div>
+				<input
+					class="sliding-filter-menu__item-input"
+					:type="build.type"
+					@change="change()"
+					:name="build.name"
+					v-model="getFieldPath(filter, item)[getLastField(item)]"
+					:true-value="build.values.true"
+					:false-value="build.values.false" />
+			</template>
+		</div>
+	</div>
+</div>

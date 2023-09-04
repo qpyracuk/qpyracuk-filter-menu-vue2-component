@@ -1,0 +1,102 @@
+:root {
+	--point: 100px;
+	--size: 100;
+	--real: calc(var(--point) * (var(--size) / 100));
+	--fs: calc(var(--real) / 5);
+	--input-size: calc(var(--real) / 5);
+	--padding: calc(var(--real) / 8);
+	--border-size: calc(var(--real) / 50);
+	--border-radius: calc(var(--real) / 10);
+	--base-color: #68779c;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
+.sliding-filter-menu__pixel {
+	width: 0px;
+	height: 0px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.sliding-filter-menu {
+	height: max-content;
+	position: absolute;
+	box-sizing: border-box;
+	display: block;
+	padding: calc(var(--padding) / 1.5) calc(var(--padding) / 1);
+	border-radius: var(--border-radius);
+	border: var(--border-size) solid var(--base-color);
+}
+
+.drag {
+	width: calc(var(--real) * 2);
+	height: calc(var(--real) * 2);
+	border-radius: 100%;
+}
+
+.sliding-filter-menu__box {
+	display: grid;
+	grid-template-columns: auto var(--input-size);
+	grid-column-gap: calc(var(--input-size) * 0.7);
+	grid-row-gap: calc(var(--input-size) * 0.5);
+}
+
+.sliding-filter-menu__item-content {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.sliding-filter-menu__item-title {
+	text-align: start;
+	font-size: var(--fs);
+	white-space: nowrap;
+}
+
+.sliding-filter-menu__item-image {
+}
+
+.sliding-filter-menu__item-sprite {
+}
+
+.sliding-filter-menu__item-input {
+	width: var(--input-size);
+	height: var(--input-size);
+	min-width: var(--input-size);
+	min-height: var(--input-size);
+	max-width: var(--input-size);
+	max-height: var(--input-size);
+}
+
+.sliding-filter-menu__drag-drop-zone {
+	width: 100%;
+	height: calc(var(--border-size) * 4);
+	margin-bottom: calc(var(--real) / 6);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sliding-filter-menu__drag-drop-item {
+	width: 40%;
+	height: 100%;
+	display: block;
+	cursor: pointer;
+	border-radius: calc(var(--border-size) * 2);
+	border: calc(var(--border-size) / 2) solid var(--base-color);
+	box-sizing: content-box;
+	background-color: var(--base-color);
+	transition: transform 0.2s ease-in-out;
+	will-change: transform;
+}
+
+.sliding-filter-menu__drag-drop-item:hover {
+	transform: scale(1.02);
+}
