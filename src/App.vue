@@ -12,13 +12,14 @@
 	const data = {
 		type: "checkbox",
 		name: 1,
-        default: 1,
+        default: "kfkfkf",
         debug: true,
 		all: {
-			title: "test",
+			title: "test"
 		},
 		values: {
-			true: 1,
+            true: "kfkfkf",
+            false: "Неправда..."
 		},
 		items: [
 			{
